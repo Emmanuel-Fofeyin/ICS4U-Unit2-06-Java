@@ -7,15 +7,16 @@
 */
 
 /**
-* This is the FlyTest class.
+* This is the program.
 */
 final class FlyTest {
     /**
-    * Prevent instantiation
+    * Prevent instantiation.
     * Throw an exception IllegalStateException.
-    * if this ever is called
+    * if this is ever called
     *
-    * @throws IllegalStateException if instantiation is attempted
+    * @throws IllegalStateException if this is ever called
+    *
     */
     private FlyTest() {
         throw new IllegalStateException("Cannot be instantiated");
@@ -26,30 +27,30 @@ final class FlyTest {
     *
     * @param args No args will be used
     */
-    public static void main(String[] args) {
-        // MagicNumbers & LocalVariableNames
-        final int twoHundredTwelve = 212;
-        final int fourHundredTwentyTwo = 422;
-        final int four = 422;
-        final int fiveThousand = 5000;
+    public static void main(final String[] args) {
 
+        // Create airplane
         final Airplane biplane = new Airplane();
-        biplane.setSpeed(twoHundredTwelve);
+        final int firstSpeed = 212;
+        biplane.setSpeed(firstSpeed);
         System.out.println(biplane.getSpeed());
+
+        // Create jet
         final Jet boeing = new Jet();
-        boeing.setSpeed(fourHundredTwentyTwo);
+        final int secondSpeed = 422;
+        boeing.setSpeed(secondSpeed);
         System.out.println(boeing.getSpeed());
-        int counter = 0;
-        while (counter < four) {
+        final int maxLoops = 5;
+        for (int counter = 0; counter < maxLoops; counter++) {
             boeing.accelerate();
             System.out.println(boeing.getSpeed());
-            if (boeing.getSpeed() > fiveThousand) {
-                biplane.setSpeed(biplane.getSpeed() * 2);
-            } else {
-                boeing.accelerate();
-            }
-            counter++;
         }
-        System.out.println(biplane.getSpeed());
+        final int thirdSpeed = 424;
+        boeing.setSpeed(thirdSpeed);
+        boeing.accelerate();
+        System.out.println(boeing.getSpeed());
+
+        // Show the program as done
+        System.out.println("\nDone.");
     }
 }
